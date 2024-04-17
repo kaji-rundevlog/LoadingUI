@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+:root{
+    --crl-white:#eee;
+    --crl-black:#222;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-family:Roboto;
+    background-color: var(--crl-black);
+    overflow: hidden;
+}
+
+.container{
+    display:flex;
+    align-items: flex-end;
+    font-size:4em;
+}
+
+h1{
+    font-size: inherit;
+    color: var(--crl-white);
+}
+
+.main{
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    width: calc(.2em * 5);
+    margin-left: .1em;
+    bottom: .4em;
+}
+
+.dot{
+    position: absolute;
+    width: .2em;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: var(--crl-white);
+}
+
+.dot.one{
+    left: 0;
+    transform: scale(0);
+    animation: growing 3s infinite;
+}
+
+@keyframes growing {
+    0%,5%{
+        transform: scale(0);
+    }
+    20%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+.dot.two{
+    left: 0;
+    animation: goRight 3s infinite;
+}
+.dot.three{
+    animation: goRight 3s infinite;
+}
+
+@keyframes goRight {
+    20%{
+        transform: translateX(.4em);
+    }
+    100%{
+        transform: translateX(.4em);
+    }
+}
+
+.content{
+    position: absolute;
+    right: 0;
+    animation: fallingY 3s cubic-bezier(0.4,0.04,0.75,0.52) infinite;
+}
+
+@keyframes fallingY {
+    5%{
+        transform: translateY(0);
+    }
+    100%{
+        transform: translateY(8em);
+    }
+}
+
+.dot.four{
+    right: 0;
+    animation: fallingX linear 3s infinite;
+}
+
+@keyframes fallingX {
+    5%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(3em);
+    }
+}
